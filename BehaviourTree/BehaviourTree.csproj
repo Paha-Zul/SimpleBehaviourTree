@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>BehaviourTree.Tests.Tests</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -42,8 +45,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="AlwaysTrueTask.cs" />
+    <Compile Include="BehaviourTreeStatus.cs" />
+    <Compile Include="BlackBoard.cs" />
+    <Compile Include="CompositeTask.cs" />
+    <Compile Include="Decorator.cs" />
+    <Compile Include="LeafTask.cs" />
+    <Compile Include="SelectorTask.cs" />
+    <Compile Include="SequenceTask.cs" />
+    <Compile Include="Task.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\TestFailureLeaf.cs" />
+    <Compile Include="Tests\TestRunningLeaf.cs" />
+    <Compile Include="Tests\Tests.cs" />
+    <Compile Include="Tests\TestSuccessLeaf.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
