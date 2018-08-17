@@ -9,7 +9,7 @@ namespace BehaviourTree
 
         public void SetData(string name, object data)
         {
-            dataMap.Add(name, data);
+            dataMap[name] = data;
         }
 
         public T GetData<T>(string name)
