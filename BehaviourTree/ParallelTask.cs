@@ -9,7 +9,7 @@ namespace BehaviourTree
     /// <summary>
     /// A Composite task that runs all child tasks at once.
     /// </summary>
-    class ParallelTask : CompositeTask
+    public class ParallelTask : CompositeTask
     {
         public int numNeededToPass;
         public int numNeededToFail;

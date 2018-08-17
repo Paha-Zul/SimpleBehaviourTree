@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BehaviourTree
+﻿namespace BehaviourTree
 {
     /// <summary>
     /// Used as a non-abstract parent for leaf nodes.

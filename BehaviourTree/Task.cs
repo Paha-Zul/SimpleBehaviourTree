@@ -2,7 +2,7 @@
 
 namespace BehaviourTree
 {
-    abstract class Task
+    public public abstract class Task
     {
 
         public static bool DEBUG_BEHAVIOURS = false;

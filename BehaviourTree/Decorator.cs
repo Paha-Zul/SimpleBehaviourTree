@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BehaviourTree
 {
-    class Decorator : Task
+    public class Decorator : Task
     {
 
         protected Task childTask;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BehaviourTree
 {
-    class SequenceTask : CompositeTask
+    public class SequenceTask : CompositeTask
     {
         public SequenceTask(string taskName = "") : base(taskName)
         {

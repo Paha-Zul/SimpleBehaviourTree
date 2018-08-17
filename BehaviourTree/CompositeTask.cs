@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BehaviourTree
 {
-    abstract class CompositeTask : Task
+    public abstract class CompositeTask : Task
     {
         protected List<Task> children = new List<Task>();
         protected int currIndex = 0;

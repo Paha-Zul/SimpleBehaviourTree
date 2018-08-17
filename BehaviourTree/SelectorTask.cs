@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BehaviourTree
+﻿namespace BehaviourTree
 {
-    class SelectorTask : CompositeTask
+    public class SelectorTask : CompositeTask
     {
         public SelectorTask(string taskName = "") : base(taskName)
         {
