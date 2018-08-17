@@ -56,6 +56,12 @@ namespace BehaviourTree
             
         }
 
+        public override void End(BlackBoard blackboard)
+        {
+            base.End(blackboard);
+            children.ForEach(task => task.End(blackboard));
+        }
+
         protected override BehaviourTreeStatus ChildFailed(BlackBoard blackboard)
         {
             throw new NotImplementedException();
