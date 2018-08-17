@@ -48,12 +48,12 @@ namespace BehaviourTree
             
         }
 
-        protected override BehaviourTreeStatus ChildFailed()
+        protected override BehaviourTreeStatus ChildFailed(BlackBoard blackboard)
         {
             throw new NotImplementedException();
         }
 
-        protected override BehaviourTreeStatus ChildSucceeded()
+        protected override BehaviourTreeStatus ChildSucceeded(BlackBoard blackboard)
         {
             throw new NotImplementedException();
         }

@@ -6,14 +6,14 @@
         {
         }
 
-        protected override BehaviourTreeStatus ChildSucceeded()
+        protected override BehaviourTreeStatus ChildSucceeded(BlackBoard blackboard)
         {
             return BehaviourTreeStatus.Success; //Simply return success and be done for SelectorTask
         }
 
-        protected override BehaviourTreeStatus ChildFailed()
+        protected override BehaviourTreeStatus ChildFailed(BlackBoard blackboard)
         {
-            children[currIndex].End(); //End the current child
+            children[currIndex].End(blackboard); //End the current child
 
             //Keep looping until either we pass the Check() of the new child or we exceed the children count
             do
@@ -24,7 +24,7 @@
                     return BehaviourTreeStatus.Failure; //Return success
             } while (!children[currIndex].Check());
 
-            children[currIndex].Start(); //Start the child
+            children[currIndex].Start(blackboard); //Start the child
 
             return BehaviourTreeStatus.Running; //Return that we are still running
         }

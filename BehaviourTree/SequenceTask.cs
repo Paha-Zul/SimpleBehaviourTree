@@ -12,9 +12,9 @@ namespace BehaviourTree
         {
         }
 
-        protected override BehaviourTreeStatus ChildSucceeded()
+        protected override BehaviourTreeStatus ChildSucceeded(BlackBoard blackboard)
         {
-            children[currIndex].End(); //End the current child
+            children[currIndex].End(blackboard); //End the current child
             currIndex++;
 
             if (currIndex >= children.Count) //If the index is out of the bounds of our children, return success because we're done with the sequence
@@ -24,14 +24,14 @@ namespace BehaviourTree
             if (!children[currIndex].Check())
                 return BehaviourTreeStatus.Failure;
 
-            children[currIndex].Start(); //Start the child
+            children[currIndex].Start(blackboard); //Start the child
 
             return BehaviourTreeStatus.Running; //Return that we are still running
         }
 
-        protected override BehaviourTreeStatus ChildFailed()
+        protected override BehaviourTreeStatus ChildFailed(BlackBoard blackboard)
         {
-            children[currIndex].End(); //End the child
+            children[currIndex].End(blackboard); //End the child
             return BehaviourTreeStatus.Failure;
         }
     }

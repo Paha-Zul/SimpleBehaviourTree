@@ -34,7 +34,7 @@ namespace BehaviourTree
         /// <summary>
         /// Used to initialize anything like variables for use in the Update() method
         /// </summary>
-        public virtual void Start()
+        public virtual void Start(BlackBoard blackboard)
         {
 
         }
@@ -52,14 +52,14 @@ namespace BehaviourTree
         /// <summary>
         /// Called when the Task completes (either Success or Failure)
         /// </summary>
-        public virtual void End()
+        public virtual void End(BlackBoard blackboard)
         {
         }
 
         /// <summary>
         /// Called when the task is reset for reuse.
         /// </summary>
-        public virtual void Reset()
+        public virtual void Reset(BlackBoard blackboard)
         {
         }
 

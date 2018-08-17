@@ -21,9 +21,9 @@ namespace BehaviourTree
             return childTask.Check();
         }
 
-        public override void Start()
+        public override void Start(BlackBoard blackboard)
         {
-            childTask.Start();
+            childTask.Start(blackboard);
         }
 
         public override BehaviourTreeStatus Update(BlackBoard blackboard)
@@ -31,14 +31,14 @@ namespace BehaviourTree
             return childTask.Update(blackboard);
         }
 
-        public override void End()
+        public override void End(BlackBoard blackboard)
         {
-            childTask.End();
+            childTask.End(blackboard);
         }
 
-        public override void Reset()
+        public override void Reset(BlackBoard blackboard)
         {
-            childTask.Reset();
+            childTask.Reset(blackboard);
         }
 
         public override string ToString()

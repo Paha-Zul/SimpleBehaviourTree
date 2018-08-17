@@ -15,11 +15,11 @@ namespace BehaviourTree
         {
         }
 
-        public override void Start()
+        public override void Start(BlackBoard blackboard)
         {
-            base.Start();
+            base.Start(blackboard);
 
-            children[currIndex].Start();
+            children[currIndex].Start(blackboard);
             //TODO What happens here with an empty sequence?
         }
 
@@ -29,10 +29,10 @@ namespace BehaviourTree
 
             var childStatus = children[currIndex].Update(blackboard);
             if (childStatus == BehaviourTreeStatus.Success)
-                return ChildSucceeded();
+                return ChildSucceeded(blackboard);
 
             if (childStatus == BehaviourTreeStatus.Failure)
-                return ChildFailed();
+                return ChildFailed(blackboard);
 
             return childStatus;
         }
@@ -40,22 +40,22 @@ namespace BehaviourTree
         /// <summary>
         /// Called when the current child succeeds
         /// </summary>
-        protected abstract BehaviourTreeStatus ChildSucceeded();
+        protected abstract BehaviourTreeStatus ChildSucceeded(BlackBoard blackboard);
 
         /// <summary>
         /// Called when the current child fails
         /// </summary>
-        protected abstract BehaviourTreeStatus ChildFailed();
+        protected abstract BehaviourTreeStatus ChildFailed(BlackBoard blackboard);
 
         public void AddChildTask(Task task)
         {
             children.Add(task);
         }
 
-        public override void Reset()
+        public override void Reset(BlackBoard blackboard)
         {
-            base.Reset();
-            children.ForEach(x => x.Reset());
+            base.Reset(blackboard);
+            children.ForEach(x => x.Reset(blackboard));
             currIndex = 0;
         }
 
