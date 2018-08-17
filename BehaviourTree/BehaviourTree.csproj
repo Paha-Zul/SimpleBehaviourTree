@@ -51,6 +51,7 @@
     <Compile Include="CompositeTask.cs" />
     <Compile Include="Decorator.cs" />
     <Compile Include="LeafTask.cs" />
+    <Compile Include="ParallelTask.cs" />
     <Compile Include="SelectorTask.cs" />
     <Compile Include="SequenceTask.cs" />
     <Compile Include="Task.cs" />

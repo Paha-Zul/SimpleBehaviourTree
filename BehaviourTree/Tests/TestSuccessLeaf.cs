@@ -14,6 +14,7 @@ namespace BehaviourTree.Tests
 
         public override BehaviourTreeStatus Update(BlackBoard blackboard)
         {
+            Console.WriteLine($"I am {taskName}");
             return BehaviourTreeStatus.Success;
         }
     }

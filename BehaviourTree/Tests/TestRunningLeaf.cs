@@ -8,8 +8,13 @@ namespace BehaviourTree.Tests
 {
     class TestRunningLeaf : LeafTask
     {
+        public TestRunningLeaf(string taskName = "") : base(taskName)
+        {
+        }
+
         public override BehaviourTreeStatus Update(BlackBoard blackboard)
         {
+            Console.WriteLine($"I am {taskName}");
             return BehaviourTreeStatus.Running;
         }
     }

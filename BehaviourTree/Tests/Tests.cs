@@ -15,7 +15,7 @@ namespace BehaviourTree.Tests
         {
             Console.WriteLine("Hey");
 
-            TestSelectorOfSequences();
+            TestSimpleParallel();
 
             Console.Read();
         }
@@ -93,6 +93,19 @@ namespace BehaviourTree.Tests
             main.AddChildTask(s1);
             main.AddChildTask(s2);
             main.AddChildTask(s3);
+
+            SetTimer(main, bb);
+        }
+
+        private static void TestSimpleParallel()
+        {
+            var bb = new BlackBoard();
+
+            var main = new ParallelTask(2, 3, "Main Parallel");
+
+            main.AddChildTask(new TestFailureLeaf("1"));
+            main.AddChildTask(new TestRunningLeaf("2"));
+            main.AddChildTask(new TestFailureLeaf("3"));
 
             SetTimer(main, bb);
         }
