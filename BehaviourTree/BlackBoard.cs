@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BehaviourTree
 {
-    class BlackBoard
+    public class BlackBoard
     {
         private Dictionary<string, object> dataMap = new Dictionary<string, object>();
 

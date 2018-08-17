@@ -3,7 +3,7 @@
     /// <summary>
     /// Used as a non-abstract parent for leaf nodes.
     /// </summary>
-    class LeafTask : Task
+    public class LeafTask : Task
     {
         public LeafTask(string taskName = "") : base(taskName)
         {
