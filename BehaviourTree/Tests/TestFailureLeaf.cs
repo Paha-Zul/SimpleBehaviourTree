@@ -12,7 +12,7 @@ namespace BehaviourTree.Tests
         {
         }
 
-        public override BehaviourTreeStatus Update(BlackBoard blackboard)
+        public override BehaviourTreeStatus Update(BlackBoard blackboard, float deltaTime)
         {
             Console.WriteLine($"I am {taskName}");
             return BehaviourTreeStatus.Failure;

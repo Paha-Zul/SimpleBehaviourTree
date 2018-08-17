@@ -26,13 +26,13 @@ namespace BehaviourTree
             this.numNeededToFail = numRequiredToFail;
         }
 
-        public override BehaviourTreeStatus Update(BlackBoard blackboard)
+        public override BehaviourTreeStatus Update(BlackBoard blackboard, float deltaTime)
         {
             var numSucceeded = 0; //A counter for succeeded tasks
             var numFailed = 0; //A counter for failed tasks 
             foreach(Task task in children) //Loop through and update each task.
             {
-                var status = task.Update(blackboard);
+                var status = task.Update(blackboard, deltaTime);
                 if (status == BehaviourTreeStatus.Success) //If it succeeds, increment counter
                     numSucceeded++;
                 if (status == BehaviourTreeStatus.Failure) //If it fails, increment counter

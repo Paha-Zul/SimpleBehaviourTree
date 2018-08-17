@@ -44,7 +44,7 @@ namespace BehaviourTree
         /// </summary>
         /// <param name="blackboard">The BlackBoard to use for data.</param>
         /// <returns>The status of the Task. Success, Running, or Failure.</returns>
-        public virtual BehaviourTreeStatus Update(BlackBoard blackboard)
+        public virtual BehaviourTreeStatus Update(BlackBoard blackboard, float delta)
         {
             return BehaviourTreeStatus.Success;
         }

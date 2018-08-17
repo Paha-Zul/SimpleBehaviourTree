@@ -119,7 +119,7 @@ namespace BehaviourTree.Tests
             aTimer.Elapsed += (source, e) => 
             {
                 Console.WriteLine(mainTask.ToString());
-                var status = mainTask.Update(bb);
+                var status = mainTask.Update(bb, 0.016f);
 
                 if (status != BehaviourTreeStatus.Running)
                 {

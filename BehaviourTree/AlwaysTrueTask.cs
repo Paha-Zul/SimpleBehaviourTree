@@ -15,9 +15,9 @@ namespace BehaviourTree
         {
         }
 
-        public override BehaviourTreeStatus Update(BlackBoard blackboard)
+        public override BehaviourTreeStatus Update(BlackBoard blackboard, float deltaTime)
         {
-            var status = childTask.Update(blackboard);
+            var status = childTask.Update(blackboard, deltaTime);
             if (status != BehaviourTreeStatus.Running)
                 return BehaviourTreeStatus.Success;
 

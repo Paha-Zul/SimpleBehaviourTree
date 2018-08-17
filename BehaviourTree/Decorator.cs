@@ -26,9 +26,9 @@ namespace BehaviourTree
             childTask.Start(blackboard);
         }
 
-        public override BehaviourTreeStatus Update(BlackBoard blackboard)
+        public override BehaviourTreeStatus Update(BlackBoard blackboard, float deltaTime)
         {
-            return childTask.Update(blackboard);
+            return childTask.Update(blackboard, deltaTime);
         }
 
         public override void End(BlackBoard blackboard)

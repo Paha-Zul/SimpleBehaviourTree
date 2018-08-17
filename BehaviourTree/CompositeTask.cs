@@ -23,11 +23,11 @@ namespace BehaviourTree
             //TODO What happens here with an empty sequence?
         }
 
-        public override BehaviourTreeStatus Update(BlackBoard blackboard)
+        public override BehaviourTreeStatus Update(BlackBoard blackboard, float deltaTime)
         {
-            base.Update(blackboard);
+            base.Update(blackboard, deltaTime);
 
-            var childStatus = children[currIndex].Update(blackboard);
+            var childStatus = children[currIndex].Update(blackboard, deltaTime);
             if (childStatus == BehaviourTreeStatus.Success)
                 return ChildSucceeded(blackboard);
 
