@@ -26,6 +26,14 @@ namespace BehaviourTree
             this.numNeededToFail = numRequiredToFail;
         }
 
+        public override void Start(BlackBoard blackboard)
+        {
+            //base.Start(blackboard);
+            //We don't call base.Start() because Parallel is special and doesn't need the typical Composite start
+
+            children.ForEach(x => x.Start(blackboard));
+        }
+
         public override BehaviourTreeStatus Update(BlackBoard blackboard, float deltaTime)
         {
             var numSucceeded = 0; //A counter for succeeded tasks

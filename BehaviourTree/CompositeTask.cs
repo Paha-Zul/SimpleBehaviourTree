@@ -9,7 +9,7 @@ namespace BehaviourTree
     public abstract class CompositeTask : Task
     {
         protected List<Task> children = new List<Task>();
-        protected int currIndex = 0;
+        protected int currIndex = -1;
 
         public CompositeTask(string taskName = "") : base(taskName)
         {
@@ -18,6 +18,8 @@ namespace BehaviourTree
         public override void Start(BlackBoard blackboard)
         {
             base.Start(blackboard);
+
+            currIndex = 0;
 
             children[currIndex].Start(blackboard);
             //TODO What happens here with an empty sequence?

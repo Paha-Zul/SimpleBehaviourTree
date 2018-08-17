@@ -103,23 +103,25 @@ namespace BehaviourTree.Tests
 
             var main = new ParallelTask(2, 3, "Main Parallel");
 
-            main.AddChildTask(new TestFailureLeaf("1"));
+            main.AddChildTask(new TestSuccessLeaf("1"));
             main.AddChildTask(new TestRunningLeaf("2"));
             main.AddChildTask(new TestFailureLeaf("3"));
 
             SetTimer(main, bb);
         }
 
-        private static void SetTimer(Task mainTask, BlackBoard bb)
+        private static void SetTimer(Task task, BlackBoard bb)
         {
+            task.Start(bb);
+
             // Create a timer with a two second interval.
             aTimer = new System.Timers.Timer(16); //16ms for 60 fps
 
             // Hook up the Elapsed event for the timer. 
             aTimer.Elapsed += (source, e) => 
             {
-                Console.WriteLine(mainTask.ToString());
-                var status = mainTask.Update(bb, 0.016f);
+                Console.WriteLine(task.ToString());
+                var status = task.Update(bb, 0.016f);
 
                 if (status != BehaviourTreeStatus.Running)
                 {
