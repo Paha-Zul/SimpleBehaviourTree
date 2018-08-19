@@ -54,6 +54,7 @@
     <Compile Include="LeafTask.cs" />
     <Compile Include="ParallelTask.cs" />
     <Compile Include="QuickLeafTask.cs" />
+    <Compile Include="RepeatUntilCondition.cs" />
     <Compile Include="SelectorTask.cs" />
     <Compile Include="SequenceTask.cs" />
     <Compile Include="Task.cs" />
