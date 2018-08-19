@@ -49,6 +49,7 @@
     <Compile Include="BehaviourTreeStatus.cs" />
     <Compile Include="BlackBoard.cs" />
     <Compile Include="CompositeTask.cs" />
+    <Compile Include="Condition.cs" />
     <Compile Include="Decorator.cs" />
     <Compile Include="LeafTask.cs" />
     <Compile Include="ParallelTask.cs" />

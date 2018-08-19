@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace BehaviourTree
 {
-    public class Decorator : Task
+    public abstract class Decorator : Task
     {
 
         protected Task childTask;
 
-        public Decorator(Task child, string taskName = "") : base(taskName)
+        protected Decorator(Task child, string taskName = "") : base(taskName)
         {
             this.childTask = child;
         }

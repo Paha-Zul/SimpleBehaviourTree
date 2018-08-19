@@ -11,7 +11,7 @@ namespace BehaviourTree
         protected List<Task> children = new List<Task>();
         protected int currIndex = -1;
 
-        public CompositeTask(string taskName = "") : base(taskName)
+        protected CompositeTask(string taskName = "") : base(taskName)
         {
         }
 
