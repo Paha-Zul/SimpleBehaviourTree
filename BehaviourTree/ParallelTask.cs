@@ -72,6 +72,9 @@ namespace BehaviourTree
             throw new NotImplementedException();
         }
 
-
+        public override string ToString()
+        {
+            return children.ToString();
+        }
     }
 }

@@ -10,16 +10,9 @@ namespace BehaviourTree
         protected string taskName = "";
         protected string failRason = "";
 
-        public Task(string taskName = "")
+        protected Task(string taskName = "")
         {
-            if (taskName != "")
-            {
-                this.taskName = taskName;
-            }
-            else
-            {
-                this.taskName = this.GetType().Name;
-            }
+            this.taskName = taskName != "" ? taskName : this.GetType().Name;
         }
 
         /// <summary>
@@ -36,7 +29,7 @@ namespace BehaviourTree
         /// </summary>
         public virtual void Start(BlackBoard blackboard)
         {
-
+            
         }
 
         /// <summary>
