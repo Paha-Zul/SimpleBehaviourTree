@@ -21,10 +21,10 @@ namespace BehaviourTree
             //Otherwise, update the child and get it's status
             var status = childTask.Update(blackboard, deltaTime);
             //If the status is not success... simply return the status of the child 
-            if (status != BehaviourTreeStatus.Success)
+            if (status != BehaviourTreeStatus.Success && status != BehaviourTreeStatus.Failure)
                 return status;
             
-            //If the child status is success, we need to repeat (so reset() and start()
+            //If the child status is success or failure, we need to repeat (so reset() and start()
             childTask.Reset(blackboard);
             childTask.Start(blackboard);
             return BehaviourTreeStatus.Running;
