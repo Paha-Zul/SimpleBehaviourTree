@@ -48,9 +48,12 @@ namespace BehaviourTree
             }
 
             //If either of the checks pass then we are successful!
-            if (numSucceeded >= numNeededToPass || numFailed >= numNeededToFail)
+            if (numSucceeded >= numNeededToPass)
                 return BehaviourTreeStatus.Success;
 
+            if (numFailed >= numNeededToFail)
+                return BehaviourTreeStatus.Failure;
+            
             //Otherwise keep running
             return BehaviourTreeStatus.Running;
             
