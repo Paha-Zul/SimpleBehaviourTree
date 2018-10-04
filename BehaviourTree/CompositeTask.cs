@@ -56,9 +56,10 @@ namespace BehaviourTree
 
         public override void End(BlackBoard blackboard)
         {
-            //End each child from the current index forward. We already ended ones before that so ignore
-            for(var i=currIndex;i<children.Count;i++)
-                children[i].End(blackboard);
+            if(currIndex >= 0)
+                //End each child from the current index forward. We already ended ones before that so ignore
+                for(var i=currIndex;i<children.Count;i++)
+                    children[i].End(blackboard);
         }
 
         public override void Reset(BlackBoard blackboard)
