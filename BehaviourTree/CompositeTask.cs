@@ -29,6 +29,9 @@ namespace BehaviourTree
         {
             base.Update(blackboard, deltaTime);
 
+            if (currIndex < 0 || currIndex >= children.Count)
+                return BehaviourTreeStatus.Failure;
+
             var childStatus = children[currIndex].Update(blackboard, deltaTime);
             if (childStatus == BehaviourTreeStatus.Success)
                 return ChildSucceeded(blackboard);
