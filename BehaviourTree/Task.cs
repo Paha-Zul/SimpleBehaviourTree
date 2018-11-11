@@ -19,7 +19,7 @@ namespace BehaviourTree
         /// Used to check any special conditions before Start() is called.
         /// </summary>
         /// <returns>True if the task is ready to be started, false otherwise</returns>
-        public virtual bool Check()
+        public virtual bool Check(BlackBoard blackboard)
         {
             return true;
         }

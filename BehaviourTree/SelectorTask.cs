@@ -22,7 +22,7 @@
 
                 if (currIndex >= children.Count) //If the index is out of the bounds of our children, return success because we're done with the selctor
                     return BehaviourTreeStatus.Failure; //Return success
-            } while (!children[currIndex].Check());
+            } while (!children[currIndex].Check(blackboard));
 
             children[currIndex].Start(blackboard); //Start the child
 

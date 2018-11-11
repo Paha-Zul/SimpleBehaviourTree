@@ -16,9 +16,9 @@ namespace BehaviourTree
             this.childTask = child;
         }
 
-        public override bool Check()
+        public override bool Check(BlackBoard blackboard)
         {
-            return childTask.Check();
+            return childTask.Check(blackboard);
         }
 
         public override void Start(BlackBoard blackboard)

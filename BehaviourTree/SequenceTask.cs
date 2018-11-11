@@ -21,7 +21,7 @@ namespace BehaviourTree
                 return BehaviourTreeStatus.Success; //Return success
 
             //If the child fails the check, return with failure
-            if (!children[currIndex].Check())
+            if (!children[currIndex].Check(blackboard))
                 return BehaviourTreeStatus.Failure;
 
             children[currIndex].Start(blackboard); //Start the child
