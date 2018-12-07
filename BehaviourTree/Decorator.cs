@@ -42,5 +42,9 @@ namespace BehaviourTree
         }
 
         public override Task GetCurrentChildTask() => childTask;
+
+        public override void SetCurrIndex(int index){} //We just want it to do nothing here
+
+        public override int GetCurrIndex() => -1; //We don't have a valid index to return
     }
 }

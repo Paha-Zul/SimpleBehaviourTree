@@ -15,5 +15,9 @@
         }
 
         public override Task GetCurrentChildTask() => null;
+
+        public override void SetCurrIndex(int index){} //Do nothing here
+
+        public override int GetCurrIndex() => -1; //No valid index to return
     }
 }

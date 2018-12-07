@@ -79,5 +79,10 @@ namespace BehaviourTree
         {
             return children.ToString();
         }
+
+        public override Task GetCurrentChildTask()
+        {
+            return base.GetCurrentChildTask();
+        }
     }
 }

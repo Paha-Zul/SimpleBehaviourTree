@@ -1,5 +1,6 @@
 ﻿
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BehaviourTree
 {
@@ -19,5 +20,8 @@ namespace BehaviourTree
 
             return (T)dataMap[name];
         }
+
+        public List<KeyValuePair<string, object>> GetAllData() => dataMap.ToList();
+        public void ClearAllData() => dataMap.Clear();
     }
 }

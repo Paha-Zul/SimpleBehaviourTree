@@ -67,5 +67,9 @@ namespace BehaviourTree
         /// </summary>
         /// <returns></returns>
         public abstract Task GetCurrentChildTask();
+
+        public abstract void SetCurrIndex(int index);
+
+        public abstract int GetCurrIndex();
     }
 }
