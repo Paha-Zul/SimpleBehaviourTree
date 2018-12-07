@@ -13,5 +13,7 @@
         {
             return $"{taskName}";
         }
+
+        public override Task GetCurrentChildTask() => null;
     }
 }

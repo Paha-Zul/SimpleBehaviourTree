@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace BehaviourTree
 {
@@ -76,5 +72,7 @@ namespace BehaviourTree
         {
             return $"{taskName} / {children[currIndex]}";
         }
+
+        public override Task GetCurrentChildTask() => currIndex > 0 ? children[currIndex] : null;
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace BehaviourTree
 {
     public abstract class Decorator : Task
@@ -45,5 +40,7 @@ namespace BehaviourTree
         {
             return $"{taskName} decorating {childTask}";
         }
+
+        public override Task GetCurrentChildTask() => childTask;
     }
 }

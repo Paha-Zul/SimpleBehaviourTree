@@ -58,8 +58,14 @@ namespace BehaviourTree
 
         public override string ToString()
         {
-            return this.taskName;
-
+            return taskName;
         }
+
+        /// <summary>
+        /// Gets the currently executing task of this Task. This will navigate down to the executing leaf task of a tree.
+        /// Will keep returning a task until null which signifies the end of the traversal
+        /// </summary>
+        /// <returns></returns>
+        public abstract Task GetCurrentChildTask();
     }
 }
