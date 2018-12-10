@@ -78,5 +78,7 @@ namespace BehaviourTree
         public override void SetCurrIndex(int index) => currIndex = index;
 
         public override int GetCurrIndex() => currIndex;
+
+        public override List<Task> GetChildren() => children;
     }
 }

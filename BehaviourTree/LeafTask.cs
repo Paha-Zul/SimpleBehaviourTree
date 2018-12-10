@@ -1,4 +1,6 @@
-﻿namespace BehaviourTree
+﻿using System.Collections.Generic;
+
+namespace BehaviourTree
 {
     /// <summary>
     /// Used as a non-abstract parent for leaf nodes.
@@ -19,5 +21,7 @@
         public override void SetCurrIndex(int index){} //Do nothing here
 
         public override int GetCurrIndex() => -1; //No valid index to return
+
+        public override List<Task> GetChildren() => new List<Task>();
     }
 }

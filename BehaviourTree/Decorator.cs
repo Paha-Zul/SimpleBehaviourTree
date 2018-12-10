@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.Generic;
+
 namespace BehaviourTree
 {
     public abstract class Decorator : Task
@@ -46,5 +48,7 @@ namespace BehaviourTree
         public override void SetCurrIndex(int index){} //We just want it to do nothing here
 
         public override int GetCurrIndex() => -1; //We don't have a valid index to return
+        
+        public override List<Task> GetChildren() => new List<Task>();
     }
 }

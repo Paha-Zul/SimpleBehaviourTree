@@ -1,5 +1,7 @@
 
 
+using System.Collections.Generic;
+
 namespace BehaviourTree
 {
     public abstract class Task
@@ -71,5 +73,7 @@ namespace BehaviourTree
         public abstract void SetCurrIndex(int index);
 
         public abstract int GetCurrIndex();
+
+        public abstract List<Task> GetChildren();
     }
 }
