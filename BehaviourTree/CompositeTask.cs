@@ -73,7 +73,7 @@ namespace BehaviourTree
             return $"{taskName} / {children[currIndex]}";
         }
 
-        public override Task GetCurrentChildTask() => currIndex > 0 ? children[currIndex] : null;
+        public override Task GetCurrentChildTask() => currIndex >= 0 ? children[currIndex] : null;
 
         public override void SetCurrIndex(int index) => currIndex = index;
 
