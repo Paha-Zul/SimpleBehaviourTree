@@ -11,6 +11,7 @@ namespace BehaviourTree
 
         protected string taskName = "";
         protected string failRason = "";
+        public bool Started = false;
 
         protected Task(string taskName = "")
         {

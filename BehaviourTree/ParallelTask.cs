@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BehaviourTree
 {
@@ -22,15 +18,15 @@ namespace BehaviourTree
         /// <param name="taskName">The name of the task</param>
         public ParallelTask(int numRequiredToFail = 99999, int numRequiredToSucceed = 99999, string taskName = "") : base(taskName)
         {
-            this.numNeededToPass = numRequiredToSucceed;
-            this.numNeededToFail = numRequiredToFail;
+            numNeededToPass = numRequiredToSucceed;
+            numNeededToFail = numRequiredToFail;
         }
 
         public override void Start(BlackBoard blackboard)
         {
             //base.Start(blackboard);
             //We don't call base.Start() because Parallel is special and doesn't need the typical Composite start
-
+            currIndex = -1;
             children.ForEach(x => x.Start(blackboard));
         }
 
