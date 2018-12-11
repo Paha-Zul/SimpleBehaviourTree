@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,7 +19,15 @@ namespace BehaviourTree
             if (!dataMap.ContainsKey(name))
                 return default(T);
 
-            return (T)dataMap[name];
+            //This is for subclasses. If a subclass can be casted upwards to it's parent this will work.
+            //If we try to use Convert.ChangeType() below it will throw a cast exception.
+            var value = dataMap[name];
+            if (value is T v)
+                return v;
+            
+            //We use convert here because situations like (int)object don't work.
+            //So converting and then casting works perfectly
+            return (T)Convert.ChangeType(value, typeof(T)); 
         }
 
         public List<KeyValuePair<string, object>> GetAllData() => dataMap.ToList();
