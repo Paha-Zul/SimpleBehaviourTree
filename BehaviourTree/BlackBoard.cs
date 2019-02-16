@@ -36,6 +36,9 @@ namespace BehaviourTree
             set => dataMap[name] = value;
         }
 
+        public bool HasData(string name)
+         => dataMap.ContainsKey(name);
+
         public List<KeyValuePair<string, object>> GetAllData() => dataMap.ToList();
         public void ClearAllData() => dataMap.Clear();
     }
