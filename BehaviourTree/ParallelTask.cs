@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace BehaviourTree
 {
@@ -72,9 +73,7 @@ namespace BehaviourTree
         }
 
         public override string ToString()
-        {
-            return children.ToString();
-        }
+        => string.Join(", ",children.Select(c=>c.ToString()));
 
         public override Task GetCurrentChildTask() => null;
 
