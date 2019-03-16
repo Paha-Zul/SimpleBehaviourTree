@@ -10,12 +10,18 @@ namespace BehaviourTree
         protected CompositeTask(string taskName = "") : base(taskName)
         {
         }
+        
+        public override bool Check(BlackBoard blackboard)
+        {
+            return currIndex < children.Count;
+        }
 
         public override void Start(BlackBoard blackboard)
         {
             base.Start(blackboard);
 
-            children[currIndex].Start(blackboard);
+            if (children[currIndex].Check(blackboard))
+                children[currIndex].Start(blackboard);
             //TODO What happens here with an empty sequence?
         }
 

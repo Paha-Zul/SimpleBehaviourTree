@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace BehaviourTree
 {
@@ -27,7 +28,11 @@ namespace BehaviourTree
             //base.Start(blackboard);
             //We don't call base.Start() because Parallel is special and doesn't need the typical Composite start
             currIndex = -1;
-            children.ForEach(x => x.Start(blackboard));
+            children.ForEach(x =>
+            {
+                if(x.Check(blackboard))
+                    x.Start(blackboard);
+            });
         }
 
         public override BehaviourTreeStatus Update(BlackBoard blackboard, float deltaTime)
@@ -73,7 +78,7 @@ namespace BehaviourTree
 
         public override string ToString()
         {
-            return children.ToString();
+            return string.Join(", ", children.Select(task => task.ToString()));
         }
 
         public override Task GetCurrentChildTask() => null;
