@@ -59,10 +59,9 @@ namespace BehaviourTree
 
         public override void End(BlackBoard blackboard)
         {
-            if(currIndex >= 0)
-                //End each child from the current index forward. We already ended ones before that so ignore
-                for(var i=currIndex;i<children.Count;i++)
-                    children[i].End(blackboard);
+            if (currIndex < 0) return;
+            for(var i=currIndex;i<children.Count;i++)
+                children[i].End(blackboard);
         }
 
         public override void Reset(BlackBoard blackboard)
@@ -77,7 +76,7 @@ namespace BehaviourTree
             return $"{taskName} / {children[currIndex]}";
         }
 
-        public override Task GetCurrentChildTask() => currIndex >= 0 ? children[currIndex] : null;
+        public override Task GetCurrentChildTask() => currIndex >= 0 && currIndex < children.Count ? children[currIndex] : null;
 
         public override void SetCurrIndex(int index) => currIndex = index;
 
