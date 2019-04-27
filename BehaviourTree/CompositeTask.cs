@@ -73,7 +73,8 @@ namespace BehaviourTree
 
         public override string ToString()
         {
-            return $"{taskName} / {children[currIndex]}";
+            var childName = currIndex < children.Count ? children[currIndex].ToString() : "end"; //This accounts for tasks that finish and the index is out of bounds
+            return $"{taskName} / {childName}";
         }
 
         public override Task GetCurrentChildTask() => currIndex >= 0 && currIndex < children.Count ? children[currIndex] : null;

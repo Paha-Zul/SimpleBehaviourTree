@@ -2,6 +2,10 @@
 
 namespace BehaviourTree
 {
+    /// <summary>
+    /// A Decorator task that will check each update tick if the passed in condition is true. If true, the
+    /// Condition task will return whatever the decorated task returns. Otherwise, it will return failure
+    /// </summary>
     public class Condition : Decorator
     {
         private Func<BlackBoard, bool> _cond;

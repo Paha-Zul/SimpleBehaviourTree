@@ -46,18 +46,17 @@ namespace BehaviourTree
                     numSucceeded++;
                 if (status == BehaviourTreeStatus.Failure) //If it fails, increment counter
                     numFailed++;
+            
+                if (numFailed >= numNeededToFail)
+                    return BehaviourTreeStatus.Failure;
             }
 
             //If either of the checks pass then we are successful!
             if (numSucceeded >= numNeededToPass)
                 return BehaviourTreeStatus.Success;
 
-            if (numFailed >= numNeededToFail)
-                return BehaviourTreeStatus.Failure;
-            
             //Otherwise keep running
             return BehaviourTreeStatus.Running;
-            
         }
 
         public override void End(BlackBoard blackboard)

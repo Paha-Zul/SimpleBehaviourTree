@@ -14,8 +14,8 @@ namespace BehaviourTree
         
         public override BehaviourTreeStatus Update(BlackBoard blackboard, float deltaTime)
         {
-            //If our condition doesn't pass, return success cause we're done with this condition
-            if (!_cond(blackboard))
+            //If our condition returns true, then we're done with this task. Return success!
+            if (_cond(blackboard))
                 return BehaviourTreeStatus.Success;
             
             //Otherwise, update the child and get it's status
