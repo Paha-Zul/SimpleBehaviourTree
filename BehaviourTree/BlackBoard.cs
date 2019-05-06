@@ -30,6 +30,16 @@ namespace BehaviourTree
             return (T)Convert.ChangeType(value, typeof(T)); 
         }
 
+        public T GetOrSetData<T>(string name, Func<T> data)
+        {
+            if (dataMap.ContainsKey(name))
+                return GetData<T>(name);
+
+            var obj = data.Invoke();
+            SetData(name, obj);
+            return obj;
+        }
+
         public object this[string name]
         {
             get => dataMap[name];
