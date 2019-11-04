@@ -32,14 +32,33 @@ namespace BehaviourTree
             if (currIndex < 0 || currIndex >= children.Count)
                 return BehaviourTreeStatus.Failure;
 
-            var childStatus = children[currIndex].Update(blackboard, deltaTime);
-            if (childStatus == BehaviourTreeStatus.Success)
-                return ChildSucceeded(blackboard);
-
-            if (childStatus == BehaviourTreeStatus.Failure)
-                return ChildFailed(blackboard);
+            var childStatus = RunChildTask(blackboard, deltaTime);
 
             return childStatus;
+        }
+
+        private BehaviourTreeStatus RunChildTask(BlackBoard blackboard, float deltaTime)
+        {
+            while (true)
+            {
+                var childStatus = children[currIndex].Update(blackboard, deltaTime);
+
+                //This will start the next child in our children list
+                if (childStatus == BehaviourTreeStatus.Success)
+                {
+                    childStatus = ChildSucceeded(blackboard);
+                    if (childStatus == BehaviourTreeStatus.Running)
+                        continue;
+                }
+                else if (childStatus == BehaviourTreeStatus.Failure)
+                {
+                    childStatus = ChildFailed(blackboard);
+                    if (childStatus == BehaviourTreeStatus.Running)
+                        continue;
+                }
+
+                return childStatus;
+            }
         }
 
         /// <summary>
